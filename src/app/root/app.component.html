@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="btn-toolbar" role="toolbar">
+    <div class="btn-group mr-3" role="group">
+      <button type="button" class="btn" [ngClass]="{'btn-primary' : gameService.appView==0}" (click)="gameService.appView=0">Enter players</button>
+    </div>
+    <div class="btn-group mr-3" role="group">
+      <button type="button" class="btn" [ngClass]="{'btn-primary' : gameService.appView==1}" (click)="gameService.appView=1">Score Rounds</button>
+    </div>
+    <div class="btn-group" role="group">
+      <button type="button" class="btn" [ngClass]="{'btn-primary' : gameService.appView==2}" (click)="gameService.appView=2">View Totals</button>
+    </div>
+  </div>
+<ng-container [ngSwitch]="gameService.appView">
+<enter-players *ngSwitchCase="0"></enter-players>
+<enter-scores *ngSwitchCase="1"></enter-scores>
+<view-totals *ngSwitchCase="2"></view-totals>
+</ng-container>
+
+</div>
+

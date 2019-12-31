@@ -1,0 +1,28 @@
+<form [formGroup]="gameService.game">
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>Round</th>
+            <th [attr.colspan]="gameService.players.length">Player</th>
+        </tr>
+        <tr>
+            <th></th>
+            <th *ngFor="let player of gameService.players.controls">{{player.value}}</th>
+        </tr>
+    </thead>
+    <tbody formArrayName="rounds">
+        <tr *ngFor="let round of gameService.rounds.controls; let i=index">
+            <th>{{i+1}}</th>
+            <ng-container [formArrayName]="i">
+                <td *ngFor="let r of round.controls; let j=index">
+                    <ng-container [formGroupName]="j">
+                        <input type="checkbox" formControlName="phase" />
+                        <input type="number" formControlName="points" />
+                    </ng-container>
+                </td>
+            </ng-container>
+        </tr>
+    </tbody>
+</table>
+<button class="btn" (click)="gameService.addRound()">Score another round</button>
+</form>

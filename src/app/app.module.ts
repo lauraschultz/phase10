@@ -1,18 +1,27 @@
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { ViewTotalsComponent } from './viewTotals/viewTotals.component';
+import { EnterScoresComponent } from './enterScores/enterScores.component';
+import { EnterPlayersComponent } from './enterPlayers/enterPlayers.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppComponent } from './root/app.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EnterPlayersComponent,
+    EnterScoresComponent,
+    ViewTotalsComponent
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [FormBuilder],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

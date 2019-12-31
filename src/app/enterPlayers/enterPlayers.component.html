@@ -1,0 +1,19 @@
+<table class="table table-bordered" [formGroup]="gameService.game">
+  <thead class="thead-dark">
+  <tr>
+    <th>#</th>
+    <th>Name of Player</th>
+    <th></th>
+  </tr>
+</thead>
+<tbody formArrayName="players">
+  <tr *ngFor="let player of gameService.players.controls; let i=index">
+    <th>{{i+1}}</th>
+    <td><input type="text" [formControlName]="i" placeholder="Enter name" /></td>
+    <td><button (click)="gameService.removePlayer(i)" class="btn btn-sm btn-danger">x</button></td>
+  </tr>
+</tbody>
+</table>
+
+<button (click)="gameService.addPlayer()" class="btn btn-secondary btn-outline">Add another player</button>
+<div class="alert alert-danger" *ngIf="gameService.twoPlayersError">You must have at least two players in a game.</div>
