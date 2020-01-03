@@ -1,28 +1,48 @@
-<form [formGroup]="gameService.game">
-<table class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th>Round</th>
-            <th [attr.colspan]="gameService.players.length">Player</th>
-        </tr>
-        <tr>
-            <th></th>
-            <th *ngFor="let player of gameService.players.controls">{{player.value}}</th>
-        </tr>
-    </thead>
-    <tbody formArrayName="rounds">
-        <tr *ngFor="let round of gameService.rounds.controls; let i=index">
-            <th>{{i+1}}</th>
-            <ng-container [formArrayName]="i">
-                <td *ngFor="let r of round.controls; let j=index">
-                    <ng-container [formGroupName]="j">
-                        <input type="checkbox" formControlName="phase" />
-                        <input type="number" formControlName="points" />
+<form [formGroup]="gameService.game" class="form-group ">
+    <div class="table-responsive">
+        <table class="table scores-table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Round</th>
+                    <th [attr.colspan]="gameService.players.length" class="text-left">Player</th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th *ngFor="let player of gameService.players.controls">{{player.value}}</th>
+                </tr>
+            </thead>
+            <tbody formArrayName="rounds">
+                <tr *ngFor="let round of gameService.rounds.controls; let i=index">
+                    <th class="align-middle bg-white">{{i+1}}</th>
+                    <ng-container [formArrayName]="i">
+                        <td *ngFor="let r of round.controls; let j=index">
+                            <!-- <div class="row" [formGroupName]="j">
+                                <span class="phase-card active-card col" (click)="gameService.handlePhaseClick(i, j)" [ngClass]="{'phase-card-selected': gameService.getPhaseValue(i,j)}">
+                                    phase:<br style="line-height: 0%;">
+                                    <span class="phase-num">{{gameService.convertToNumeral(gameService.calculatePhase(i)[j])}}</span>
+                                </span>
+                                <span class="col">
+                                    <input type="number" class="form-control" formControlName="points" size="3"/>
+                                </span>
+                            </div> -->
+                            <table *ngIf="gameService.calculatePhase(i,j)[j] < 11" [formGroupName]="j" class="scores">
+                                <tr>
+                                    <td>
+                                        <span class="phase-card active-card col" (click)="gameService.handlePhaseClick(i, j)" [ngClass]="{'phase-card-selected': gameService.getPhaseValue(i,j)}">
+                                            phase
+                                            <span class="phase-num">{{gameService.convertToNumeral(gameService.calculatePhase(i)[j])}}</span>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <input type="number" class="form-control" formControlName="points" style="min-width:65px"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
                     </ng-container>
-                </td>
-            </ng-container>
-        </tr>
-    </tbody>
-</table>
-<button class="btn" (click)="gameService.addRound()">Score another round</button>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <button class="btn" (click)="gameService.addRound()" [disabled]="!gameService.rounds.valid">Score another round</button>
 </form>

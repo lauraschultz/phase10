@@ -1,7 +1,6 @@
 import { GameService } from './../shared/game.service';
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormArray, FormBuilder, FormControl} from '@angular/forms';
-
+import { faPencilAlt, faUsers, faMedal } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +9,10 @@ import {FormGroup, FormArray, FormBuilder, FormControl} from '@angular/forms';
 })
 export class AppComponent{
   title = 'phase10';
+
+  faPencilAlt = faPencilAlt;
+  faUsers = faUsers;
+  faMedal = faMedal;
 
   constructor(private gameService: GameService){}
 }

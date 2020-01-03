@@ -4,7 +4,7 @@ import { EnterScoresComponent } from './enterScores/enterScores.component';
 import { EnterPlayersComponent } from './enterPlayers/enterPlayers.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './root/app.component';
 
@@ -14,12 +14,12 @@ import { AppComponent } from './root/app.component';
     EnterPlayersComponent,
     EnterScoresComponent,
     ViewTotalsComponent
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [FormBuilder],
   bootstrap: [AppComponent]

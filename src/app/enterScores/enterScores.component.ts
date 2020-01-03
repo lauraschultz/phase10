@@ -8,6 +8,9 @@ import { Component } from '@angular/core';
 export class EnterScoresComponent{
   constructor(private gameService:GameService){
     console.log(this.gameService.players.length);
+    if(!this.gameService.gameStarted()){
+      this.gameService.addRound();
+    }
   }
   
 }

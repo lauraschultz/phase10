@@ -1,19 +1,28 @@
-<div class="container">
-    <div class="btn-toolbar" role="toolbar">
-    <div class="btn-group mr-3" role="group">
-      <button type="button" class="btn" [ngClass]="{'btn-primary' : gameService.appView==0}" (click)="gameService.appView=0">Enter players</button>
-    </div>
-    <div class="btn-group mr-3" role="group">
-      <button type="button" class="btn" [ngClass]="{'btn-primary' : gameService.appView==1}" (click)="gameService.appView=1">Score Rounds</button>
-    </div>
-    <div class="btn-group" role="group">
-      <button type="button" class="btn" [ngClass]="{'btn-primary' : gameService.appView==2}" (click)="gameService.appView=2">View Totals</button>
-    </div>
-  </div>
+<script src="https://kit.fontawesome.com/00cfb3672c.js" crossorigin="anonymous"></script>
+
+<nav class="navbar navbar-light bg-light justify-content-center fixed-bottom">
+      <a class="nav-item nav-link text-center" [ngClass]="{'active' : gameService.appView==0}" (click)="gameService.appView=0">
+        <h2 class="m-0"><fa-icon [icon]="faUsers"></fa-icon></h2>
+        <small>Enter players</small>
+      </a>
+      <a class="nav-item nav-link text-center" [ngClass]="{'active' : gameService.appView==1}" (click)="gameService.appView=1" [ngClass]="{'disabled':!gameService.players.valid}">
+        <h2 class="m-0"><fa-icon [icon]="faPencilAlt"></fa-icon></h2>
+        <small>Score Rounds</small>
+      </a>
+      <a class="nav-item nav-link text-center" [ngClass]="{'active' : gameService.appView==2}" (click)="gameService.appView=2" [ngClass]="{'disabled':!gameService.players.valid}">
+        <h2 class="m-0"><fa-icon [icon]="faMedal"></fa-icon></h2>
+        <small>View Totals</small>
+      </a>  
+</nav>
+
+
+
+<div class="container text-center mt-3 mb-5">
+    
 <ng-container [ngSwitch]="gameService.appView">
-<enter-players *ngSwitchCase="0"></enter-players>
-<enter-scores *ngSwitchCase="1"></enter-scores>
-<view-totals *ngSwitchCase="2"></view-totals>
+  <enter-players *ngSwitchCase="0"></enter-players>
+  <enter-scores *ngSwitchCase="1"></enter-scores>
+  <view-totals *ngSwitchCase="2"></view-totals>
 </ng-container>
 
 </div>
