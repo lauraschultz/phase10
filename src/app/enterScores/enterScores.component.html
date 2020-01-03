@@ -25,7 +25,7 @@
                                     <input type="number" class="form-control" formControlName="points" size="3"/>
                                 </span>
                             </div> -->
-                            <table *ngIf="gameService.calculatePhase(i,j)[j] < 11" [formGroupName]="j" class="scores">
+                            <table *ngIf="gameService.calculatePhase(i)[j] < 11" [formGroupName]="j" class="scores">
                                 <tr>
                                     <td>
                                         <span class="phase-card active-card col" (click)="gameService.handlePhaseClick(i, j)" [ngClass]="{'phase-card-selected': gameService.getPhaseValue(i,j)}">

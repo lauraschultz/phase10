@@ -12,7 +12,7 @@ export class ViewTotalsComponent{
 
   view = 0;
 
-  constructor(private gameService: GameService){
+  constructor(public gameService: GameService){
     let scoreArray = this.gameService.calculateTotalPoints();
     let phaseArray = this.gameService.calculatePhase(this.gameService.rounds.length);
     this.gameService.players.controls.forEach((pl, index) => {

@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 })
 export class EnterPlayersComponent{
 
-  constructor(private gameService: GameService){
+  constructor(public gameService: GameService){
     console.log('game:',this.gameService.game);
     // $('#exampleModal').modal('show');
   }

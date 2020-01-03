@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   templateUrl: './enterScores.component.html',
 })
 export class EnterScoresComponent{
-  constructor(private gameService:GameService){
+  constructor(public gameService:GameService){
     console.log(this.gameService.players.length);
     if(!this.gameService.gameStarted()){
       this.gameService.addRound();

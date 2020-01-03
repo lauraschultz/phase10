@@ -14,5 +14,5 @@ export class AppComponent{
   faUsers = faUsers;
   faMedal = faMedal;
 
-  constructor(private gameService: GameService){}
+  constructor(public gameService: GameService){}
 }
