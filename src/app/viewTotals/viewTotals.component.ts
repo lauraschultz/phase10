@@ -19,7 +19,6 @@ export class ViewTotalsComponent{
 
   setView(v:number){
     this.view = v;
-    console.log('view is', this.view);
   }
 
   getMedalRibbonColor(i:number): string {
@@ -30,7 +29,6 @@ export class ViewTotalsComponent{
   }
 
   getMedalColor(i:number): string{
-    console.log('i is', i);
     if(i>2) {
       return 'white'
     } else if (i==2){
@@ -58,7 +56,6 @@ export class ViewTotalsComponent{
         'phase': phaseArray[index]-1
       })
     });
-    console.log('data is', this.data);
 
     this.sortedData = this.data.concat().sort(function(a, b){
       if(a['phase'] == b['phase']){
@@ -66,8 +63,6 @@ export class ViewTotalsComponent{
       }
       return b['phase']-a['phase'];
     });
-
-    console.log('sorteddata is', this.sortedData);
     
   }
 }

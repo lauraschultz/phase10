@@ -13,18 +13,9 @@
             </thead>
             <tbody formArrayName="rounds">
                 <tr *ngFor="let round of gameService.rounds.controls; let i=index">
-                    <th class="align-middle bg-white">{{i+1}}</th>
+                    <th class="align-middle bg-white" style="z-index:15">{{i+1}}</th>
                     <ng-container [formArrayName]="i">
                         <td *ngFor="let r of round.controls; let j=index">
-                            <!-- <div class="row" [formGroupName]="j">
-                                <span class="phase-card active-card col" (click)="gameService.handlePhaseClick(i, j)" [ngClass]="{'phase-card-selected': gameService.getPhaseValue(i,j)}">
-                                    phase:<br style="line-height: 0%;">
-                                    <span class="phase-num">{{gameService.convertToNumeral(gameService.calculatePhase(i)[j])}}</span>
-                                </span>
-                                <span class="col">
-                                    <input type="number" class="form-control" formControlName="points" size="3"/>
-                                </span>
-                            </div> -->
                             <table *ngIf="gameService.calculatePhase(i)[j]<11" [formGroupName]="j" class="scores">
                                 <tr>
                                     <td>

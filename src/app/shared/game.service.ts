@@ -60,7 +60,6 @@ export class GameService {
       // each player:
       (<FormArray>this.rounds.controls[i]).controls.forEach((p, index) => {
         totals[index] += (p.get('phase').value ? 1 : 0);
-        // console.log('totals is now:', totals)
       });
     };
     

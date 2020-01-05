@@ -10,7 +10,5 @@ import { Component } from '@angular/core';
 export class EnterPlayersComponent{
 
   constructor(public gameService: GameService){
-    console.log('game:',this.gameService.game);
-    // $('#exampleModal').modal('show');
   }
 }
