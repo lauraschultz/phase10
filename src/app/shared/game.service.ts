@@ -93,6 +93,7 @@ export class GameService {
 
 addPlayer(){
   this.players.push(this.formBuilder.control('', Validators.required));
+  this.twoPlayersError = false;
 }
 
   removePlayer(i:number){
@@ -130,6 +131,12 @@ addPlayer(){
 
   gameStarted():boolean{
     return this.rounds.length > 0;
+  }
+
+  changeView(v:number){
+    if(this.players.valid){
+      this.appView = v;
+    }
   }
 
 

@@ -10,7 +10,12 @@ export class ViewTotalsComponent{
   data = [];
   sortedData;
 
-  view = 0;
+  view=0;
+
+  setView(v:number){
+    this.view = v;
+    console.log('view is', this.view);
+  }
 
   constructor(public gameService: GameService){
     let scoreArray = this.gameService.calculateTotalPoints();
@@ -32,5 +37,6 @@ export class ViewTotalsComponent{
     });
 
     console.log('sorteddata is', this.sortedData);
+    
   }
 }

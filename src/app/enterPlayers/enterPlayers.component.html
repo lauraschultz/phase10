@@ -1,5 +1,5 @@
 <form class="form-group" [formGroup]="gameService.game">
-<table class="table">
+<table class="table align-middle">
   <thead class="thead-dark">
   <tr>
     <th>#</th>
@@ -9,18 +9,18 @@
 </thead>
 <tbody formArrayName="players">
   <tr *ngFor="let player of gameService.players.controls; let i=index">
-    <th>{{i+1}}</th>
+    <th class="align-middle">{{i+1}}</th>
     <td><input class="form-control" type="text" [formControlName]="i" placeholder="Enter name" /></td>
-    <td><button (click)="gameService.removePlayer(i)" class="btn btn-sm btn-danger">&times;</button></td>
+    <td class="align-middle"><button (click)="gameService.removePlayer(i)" class="btn btn-sm btn-danger"><strong>&times;</strong></button></td>
   </tr>
 </tbody>
 </table>
 
 
 <!-- <span class="d-inline-block" tabindex="0" data-toggle="tooltip" [attr.title]="!gameService.players.valid ? '': 'Please enter a name for all players before continuing'"> -->
-  <button (click)="gameService.addPlayer()" class="btn btn-secondary btn-outline" [disabled]="!gameService.players.valid">Add another player</button>
+  <button (click)="gameService.addPlayer()" class="btn btn-outline-secondary" [disabled]="!gameService.players.valid">Add another player</button>
 <!-- </span> -->
 </form>
 
 <div class="alert alert-danger mt-2" *ngIf="gameService.twoPlayersError">You must have at least two players in a game.</div>
-<button [disabled]="!gameService.players.valid" (click)="gameService.appView=1" class="btn">Continue to scoreboard</button>
+<button [disabled]="!gameService.players.valid" (click)="gameService.changeView(1)" class="btn btn-primary">Continue to scoreboard</button>

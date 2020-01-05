@@ -1,23 +1,23 @@
 <script src="https://kit.fontawesome.com/00cfb3672c.js" crossorigin="anonymous"></script>
 
-<nav class="navbar navbar-light bg-light justify-content-center fixed-bottom">
-      <a class="nav-item nav-link text-center" [ngClass]="{'active' : gameService.appView==0}" (click)="gameService.appView=0">
+  <nav class="navbar navbar-light bg-light justify-content-between fixed-bottom">
+      <a class="nav-item nav-link text-center p-1" [ngClass]="{'active' : gameService.appView==0}" (click)="gameService.changeView(0)">
         <h2 class="m-0"><fa-icon [icon]="faUsers"></fa-icon></h2>
-        <small>Enter players</small>
+        <small>Enter Players</small>
       </a>
-      <a class="nav-item nav-link text-center" [ngClass]="{'active' : gameService.appView==1}" (click)="gameService.appView=1" [ngClass]="{'disabled':!gameService.players.valid}">
+      <a class="nav-item nav-link text-center p-1" [ngClass]="{'active' : gameService.appView==1, 'disabled':!gameService.players.valid}" (click)="gameService.changeView(1)">
         <h2 class="m-0"><fa-icon [icon]="faPencilAlt"></fa-icon></h2>
         <small>Score Rounds</small>
       </a>
-      <a class="nav-item nav-link text-center" [ngClass]="{'active' : gameService.appView==2}" (click)="gameService.appView=2" [ngClass]="{'disabled':!gameService.players.valid}">
+      <a class="nav-item nav-link text-center p-1" [ngClass]="{'active' : gameService.appView==2, 'disabled':!gameService.players.valid}"  (click)="gameService.changeView(2)">
         <h2 class="m-0"><fa-icon [icon]="faMedal"></fa-icon></h2>
         <small>View Totals</small>
-      </a>  
+      </a> 
 </nav>
 
 
 
-<div class="container text-center mt-3 mb-5">
+<div class="container text-center mt-4 mb-5">
     
 <ng-container [ngSwitch]="gameService.appView">
   <enter-players *ngSwitchCase="0"></enter-players>
@@ -26,4 +26,6 @@
 </ng-container>
 
 </div>
+
+
 
