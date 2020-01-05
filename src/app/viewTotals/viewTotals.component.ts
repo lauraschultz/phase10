@@ -1,6 +1,8 @@
 import { FormGroup, FormControl } from '@angular/forms';
 import { GameService } from './../shared/game.service';
 import { Component } from '@angular/core';
+import {  faMedal, faCircle } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'view-totals',
@@ -12,10 +14,39 @@ export class ViewTotalsComponent{
 
   view=0;
 
+  faMedal = faMedal;
+  faCircle = faCircle;
+
   setView(v:number){
     this.view = v;
     console.log('view is', this.view);
   }
+
+  getMedalRibbonColor(i:number): string {
+    if (i>2){
+      return 'white'
+    }
+    return 'var(--secondary)'
+  }
+
+  getMedalColor(i:number): string{
+    console.log('i is', i);
+    if(i>2) {
+      return 'white'
+    } else if (i==2){
+      return '#cd7f32'
+    } else if (i==1){
+      return '#c0c0c0'
+    } 
+    return '#ffd700'
+  }
+
+  getTextColor(i:number):string {
+    if(i>2){
+      return 'black'
+    }
+    return 'white'
+ }
 
   constructor(public gameService: GameService){
     let scoreArray = this.gameService.calculateTotalPoints();

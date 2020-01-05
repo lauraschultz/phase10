@@ -15,9 +15,8 @@
       </a> 
 </nav>
 
-
-
-<div class="container text-center mt-4 mb-5">
+<!-- TODO: better soln for margin/navbar issue -->
+<div class="container text-center mt-4" style="margin-bottom:115px">
     
 <ng-container [ngSwitch]="gameService.appView">
   <enter-players *ngSwitchCase="0"></enter-players>

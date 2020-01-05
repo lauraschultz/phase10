@@ -36,25 +36,37 @@
     color: white;
     background-color: var(--dark);
 }
+/* 
+.place-0 .medal{
+    color: gold;
+}
 
-.place-0, .place-1, .place-2 {
-    border-radius: 100%;
+.place-1 .medal{
+    color: silver;
+}
+
+.place-2 .medal{
+    color: brown;
+}
+.place-0 .medal-text, .place-1 .medal-text, .place-2 .medal-text {
     color:white;
-    padding:2px 6px;
-    box-shadow: 1px 1px 3px rbga(200,200,200, 1);
 }
 
-.place-0 {
-    background-color: gold;
+.place-0 .medal-ribbon, .place-1 .medal-ribbon, .place-2 .medal-ribbon {
+    color: var(--secondary);
 }
 
-.place-1 {
-    background-color: silver;
+.place-gen .medal-ribbon {
+    color: white;
 }
 
-.place-2 {
-    background-color: brown;
+.place-gen .medal {
+    color: white;
 }
+
+.place-gen .medal-text {
+    color: var(--dark);
+}  */
 
 .scores-table > thead > tr th {
     position: -webkit-sticky; /* for Safari */
