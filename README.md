@@ -1,27 +1,15 @@
-# Phase10
+# Phase 10 Scorekeeper
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.21.
+This is a simple, static app that allows the user to keep score for a Phase 10 game. Begin by entering the names of the players. More players can be added later, but they will not be added to previous rounds if the game has already begun.
 
-## Development server
+Keep score by entering the pointed earned each round on the 'Score Rounds' tab, and selecting whether or not each player got their current phase.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Check to see who's winning by clicking the 'View Totals' tab and clicking 'Ranked View'. Players are sorted by highest phase achieved, then by least total points.
 
-## Code scaffolding
+Please note that the app does *not* save scores; all data will be lost upon reload.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Screenshots
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+![enter players tab](assets/forReadMe/enter.png)
+![score rounds tab](assets/forReadMe/score.png)
+![view totals tab](assets/forReadMe/totals.png)

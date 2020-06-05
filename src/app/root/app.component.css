@@ -9,6 +9,7 @@ a.disabled {
 
 .content {
     margin-bottom: 115px;
+    overflow-y: scroll;
 }
 
 .wrapper {
@@ -30,7 +31,7 @@ a.disabled {
 }
 
 @media only screen and (min-width: 550px) {
-    
+
     /* .card {
         max-width: 500px;
         margin:15vh auto;
