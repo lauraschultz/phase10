@@ -2,38 +2,35 @@
 <div id="container">
 
   <div class="card">
-    <nav class="navbar navbar-light bg-light justify-content-between fixed-bottom">
-      <a class="nav-item nav-link text-center p-1"
-        [routerLink]="['editPlayers']"
-        routerLinkActive="active">
-        <h2 class="m-0">
-          <fa-icon [icon]="faUsers"></fa-icon>
-        </h2>
-        <small>Enter Players</small>
-      </a>
-      <a class="nav-item nav-link text-center p-1"
-        [ngClass]="{'disabled':!gameService.players.valid}"
-        [routerLink]="['score']"
-        routerLinkActive="active">
-        <h2 class="m-0">
-          <fa-icon [icon]="faPencilAlt"></fa-icon>
-        </h2>
-        <small>Score Rounds</small>
-      </a>
-      <a class="nav-item nav-link text-center p-1"
-        [ngClass]="{'disabled':!gameService.players.valid}"
-        [routerLink]="['viewTotals']"
-        routerLinkActive="active">
-        <h2 class="m-0">
-          <fa-icon [icon]="faMedal"></fa-icon>
-        </h2>
-        <small>View Totals</small>
-      </a>
+    <nav class="navbar navbar-light bg-light justify-content-center fixed-bottom">
+      <div class="nav-items-cont justify-content-between">
+        <a class="nav-item nav-link text-center p-1" [routerLink]="['editPlayers']" routerLinkActive="active">
+          <h2 class="m-0">
+            <fa-icon [icon]="faUsers"></fa-icon>
+          </h2>
+          <small>Enter Players</small>
+        </a>
+        <a class="nav-item nav-link text-center p-1" [ngClass]="{'disabled':!gameService.players.valid}"
+          [routerLink]="['score']" routerLinkActive="active">
+          <h2 class="m-0">
+            <fa-icon [icon]="faPencilAlt"></fa-icon>
+          </h2>
+          <small>Score Rounds</small>
+        </a>
+        <a class="nav-item nav-link text-center p-1" [ngClass]="{'disabled':!gameService.players.valid}"
+          [routerLink]="['viewTotals']" routerLinkActive="active">
+          <h2 class="m-0">
+            <fa-icon [icon]="faMedal"></fa-icon>
+          </h2>
+          <small>View Totals</small>
+        </a>
+
+      </div>
     </nav>
 
     <!-- TODO: better soln for margin/navbar issue -->
     <div class="content">
-        <router-outlet></router-outlet>
+      <router-outlet></router-outlet>
 
 
       <!-- <ng-container [ngSwitch]="gameService.appView">

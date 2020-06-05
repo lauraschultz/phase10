@@ -7,7 +7,6 @@ import { Injectable } from '@angular/core';
 export class GameService {
   game: FormGroup;
   twoPlayersError = false;
-  appView;
 
   constructor(private formBuilder: FormBuilder) {
     this.reset();
@@ -18,11 +17,8 @@ export class GameService {
       players: this.formBuilder.array([]),
       rounds: this.formBuilder.array([])
     })
-
     this.addPlayer();
     this.addPlayer();
-
-    this.appView = 0;
   }
 
   get players() {
@@ -52,7 +48,6 @@ export class GameService {
   }
 
   calculatePhase(round: number): Array<number> {
-    console.log('calculate phase');
     // return array with the number of highest phase achieved
     // for each player as of the round indicated
     let totals = new Array<number>(this.players.length).fill(1);
@@ -131,14 +126,4 @@ export class GameService {
   gameStarted(): boolean {
     return this.rounds.length > 0;
   }
-
-  changeView(v: number) {
-    if (this.players.valid) {
-      this.appView = v;
-    }
-  }
-
-
-
-
 }

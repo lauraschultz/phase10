@@ -1,14 +1,32 @@
+:root {
+    --responsive-padding: 10vw;
+}
+
 body, html {
     width:100%;
     height:100%;
 }
 
+.ml-r {
+    margin-left: var(--responsive-padding);
+}
+
+.mr-r {
+    margin-right: var(--responsive-padding);
+}
+
+.nav-items-cont {
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+}
+
 table.with-padding th:first-child {
-    padding-left:40px;
+    padding-left:var(--responsive-padding);
 }
 
 table.with-padding th:last-child, table.with-padding td:last-child {
-    padding-right: 40px;
+    padding-right: var(--responsive-padding);
 }
 
 /* table.with-padding thead tr th {
@@ -95,7 +113,18 @@ table.scores td{
 
 
 @media only screen and (min-width: 600px) {
-body {
+
+    :root {
+        --responsive-padding: 20vw;
+    }
+/* body {
     margin-top: -10px;
+} */
 }
+
+@media only screen and (min-width: 1200px) {
+
+    :root {
+        --responsive-padding: 35vw;
+    }
 }
