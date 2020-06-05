@@ -10,6 +10,6 @@ Please note that the app does *not* save scores; all data will be lost upon relo
 
 ## Screenshots
 
-![enter players tab](assets/forReadMe/enter.png)
-![score rounds tab](assets/forReadMe/score.png)
-![view totals tab](assets/forReadMe/totals.png)
+![enter players tab](https://raw.githubusercontent.com/lauraschultz/phase10/master/src/assets/forReadMe/enter.png)
+![score rounds tab](https://raw.githubusercontent.com/lauraschultz/phase10/master/src/assets/forReadMe/score.png)
+![view totals tab](https://raw.githubusercontent.com/lauraschultz/phase10/master/src/assets/forReadMe/totals.png)
