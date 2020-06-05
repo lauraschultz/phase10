@@ -12,9 +12,7 @@
       "architect": {
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
-          "options": {
-            "baseHref": "https://lauraschultz.github.io/phase10/"
-          }
+          "options": {}
         },
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -32,7 +30,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [ ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -126,6 +124,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "phase10"
 }
