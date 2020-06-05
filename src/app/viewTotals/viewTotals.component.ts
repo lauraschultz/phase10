@@ -2,6 +2,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { GameService } from './../shared/game.service';
 import { Component } from '@angular/core';
 import {  faMedal, faCircle } from '@fortawesome/free-solid-svg-icons';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -46,7 +47,7 @@ export class ViewTotalsComponent{
     return 'white'
  }
 
-  constructor(public gameService: GameService){
+  constructor(public gameService: GameService, private router: Router, private route: ActivatedRoute){
     let scoreArray = this.gameService.calculateTotalPoints();
     let phaseArray = this.gameService.calculatePhase(this.gameService.rounds.length);
     this.gameService.players.controls.forEach((pl, index) => {
@@ -64,5 +65,11 @@ export class ViewTotalsComponent{
       return b['phase']-a['phase'];
     });
     
+  }
+
+  ngOnInit(): void {
+    if(!this.gameService.players.valid){
+      this.router.navigate(['editPlayers']);
+    }
   }
 }

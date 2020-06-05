@@ -5,40 +5,40 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class GameService {
-    game:FormGroup;
-    twoPlayersError=false;
-    appView;
+  game: FormGroup;
+  twoPlayersError = false;
+  appView;
 
   constructor(private formBuilder: FormBuilder) {
-      this.reset();
+    this.reset();
   }
 
-  reset(){
-      this.game = this.formBuilder.group({
-        players: this.formBuilder.array([]),
-        rounds: this.formBuilder.array([])
-      })
-      
-      this.addPlayer();
-      this.addPlayer();
+  reset() {
+    this.game = this.formBuilder.group({
+      players: this.formBuilder.array([]),
+      rounds: this.formBuilder.array([])
+    })
 
-      this.appView = 0;
+    this.addPlayer();
+    this.addPlayer();
+
+    this.appView = 0;
   }
 
-    get players() {
-      return this.game.get('players') as FormArray;
+  get players() {
+    return this.game.get('players') as FormArray;
   }
 
-  get rounds(){
+  get rounds() {
     return this.game.get('rounds') as FormArray;
   }
 
-  addRound(){
-      let ar = this.formBuilder.array([]);
-      for(let i=0; i<this.players.length; i++){
-        ar.push(this.createRound());
-      }
-      this.rounds.push(ar);
+  addRound() {
+    let ar = this.formBuilder.array([]);
+    for (let i = 0; i < this.players.length; i++) {
+      ar.push(this.createRound());
+    }
+    this.rounds.push(ar);
   }
 
   calculateTotalPoints(): Array<number> {
@@ -51,64 +51,64 @@ export class GameService {
     return totals;
   }
 
-  calculatePhase(round:number):Array<number>{
+  calculatePhase(round: number): Array<number> {
+    console.log('calculate phase');
     // return array with the number of highest phase achieved
     // for each player as of the round indicated
     let totals = new Array<number>(this.players.length).fill(1);
     // each round:
-    for(let i=0; i<round; i++){
+    for (let i = 0; i < round; i++) {
       // each player:
       (<FormArray>this.rounds.controls[i]).controls.forEach((p, index) => {
         totals[index] += (p.get('phase').value ? 1 : 0);
       });
     };
-    
     return totals;
   }
 
-  createRound(): FormGroup{
-      return this.formBuilder.group({
-            phase: new FormControl(false),
-            points: new FormControl('', Validators.required)
-        });
+  createRound(): FormGroup {
+    return this.formBuilder.group({
+      phase: new FormControl(false),
+      points: new FormControl('', Validators.required)
+    });
   }
 
-  handleAddPlayerBtn(){
-    if(this.gameStarted()){
+  handleAddPlayerBtn() {
+    if (this.gameStarted()) {
       // TODO: modal message 
     }
-      this.addPlayer();
+    this.addPlayer();
   }
 
-  handleRemovePlayerBtn(i:number){
-    if(this.gameStarted()){
+  handleRemovePlayerBtn(i: number) {
+    if (this.gameStarted()) {
       // TODO: modal message
-      this.rounds.controls.forEach(ar =>{
+      this.rounds.controls.forEach(ar => {
         (<FormArray>ar).removeAt(i);
       })
     }
     this.removePlayer(i);
   }
 
-addPlayer(){
-  this.players.push(this.formBuilder.control('', Validators.required));
-  this.twoPlayersError = false;
-}
-
-  removePlayer(i:number){
-      if(this.players.length > 2){
-        this.players.removeAt(i);
-      } else {
-        this.twoPlayersError = true;
-      }
+  addPlayer() {
+    this.players.push(this.formBuilder.control('', Validators.required));
+    this.twoPlayersError = false;
   }
 
-  handlePhaseClick(round:number, player:number){
+  removePlayer(i: number) {
+    if (this.players.length > 2) {
+      this.players.removeAt(i);
+    } else {
+      this.twoPlayersError = true;
+    }
+  }
+
+  handlePhaseClick(round: number, player: number) {
     let control = (<FormGroup>(<FormArray>this.rounds.controls[round]).controls[player]).controls.phase;
     control.setValue(!control.value);
   }
 
-  getPhaseValue(round:number, player:number) {
+  getPhaseValue(round: number, player: number) {
     return (<FormArray>this.rounds.controls[round]).controls[player].value.phase;
   }
 
@@ -128,12 +128,12 @@ addPlayer(){
     return dict[n];
   }
 
-  gameStarted():boolean{
+  gameStarted(): boolean {
     return this.rounds.length > 0;
   }
 
-  changeView(v:number){
-    if(this.players.valid){
+  changeView(v: number) {
+    if (this.players.valid) {
       this.appView = v;
     }
   }

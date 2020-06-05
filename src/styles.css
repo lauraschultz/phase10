@@ -1,4 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+body, html {
+    width:100%;
+    height:100%;
+}
+
+table.with-padding th:first-child {
+    padding-left:40px;
+}
+
+table.with-padding th:last-child, table.with-padding td:last-child {
+    padding-right: 40px;
+}
+
+/* table.with-padding thead tr th {
+    padding-top:25px !important;
+} */
+
 .phase-card {
     padding: 2px;
     border: 1px dotted var(--light);
@@ -13,15 +29,23 @@
     z-index:10;
 }
 
+.nav-link {
+    color: var(--dark);
+}
+
+.nav-link:hover {
+    color: var(--dark);
+}
+
 .nav-link.active {
     border-bottom: 4px solid var(--dark);
 }
 
 .nav-link.disabled {
-    color: gray !important;
+    color: var(--gray) !important;
 }
 
-.phase-card .active-card {
+.phase-card.active-card {
     cursor: pointer;
 }
 
@@ -37,37 +61,10 @@
     color: white;
     background-color: var(--dark);
 }
-/* 
-.place-0 .medal{
-    color: gold;
-}
 
-.place-1 .medal{
-    color: silver;
+.btn-container {
+    text-align:center;
 }
-
-.place-2 .medal{
-    color: brown;
-}
-.place-0 .medal-text, .place-1 .medal-text, .place-2 .medal-text {
-    color:white;
-}
-
-.place-0 .medal-ribbon, .place-1 .medal-ribbon, .place-2 .medal-ribbon {
-    color: var(--secondary);
-}
-
-.place-gen .medal-ribbon {
-    color: white;
-}
-
-.place-gen .medal {
-    color: white;
-}
-
-.place-gen .medal-text {
-    color: var(--dark);
-}  */
 
 .scores-table > thead > tr th {
     position: -webkit-sticky; /* for Safari */
@@ -94,4 +91,11 @@
 table.scores td{
     padding: 0px 2px;
     border:none;
+}
+
+
+@media only screen and (min-width: 600px) {
+body {
+    margin-top: -10px;
+}
 }
