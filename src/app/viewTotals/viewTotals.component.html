@@ -1,83 +1,105 @@
 <div class="btn-container mt-2 mb-2">
-    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-    <label class="btn btn-secondary btn-sm" [ngClass]="{'active': view==0}" (click)="setView(0)">
-        <input type="radio" name="view" id="0" autocomplete="off" checked>Default view
+  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+    <label
+      class="btn btn-secondary btn-sm"
+      [ngClass]="{ active: view == 0 }"
+      (click)="setView(0)"
+    >
+      <input
+        type="radio"
+        name="view"
+        id="0"
+        autocomplete="off"
+        checked
+      />Default view
     </label>
-    <label class="btn btn-secondary btn-sm" [ngClass]="{'active': view==1}" (click)="setView(1)">
-        <input type="radio" name="view" id="1" autocomplete="off">Ranked view
+    <label
+      class="btn btn-secondary btn-sm"
+      [ngClass]="{ active: view == 1 }"
+      (click)="setView(1)"
+    >
+      <input type="radio" name="view" id="1" autocomplete="off" />Ranked view
     </label>
+  </div>
 </div>
-</div>
-
 
 <ng-container [ngSwitch]="view">
-    <div *ngSwitchCase="1">
-        <table class="table with-padding">
-            <thead class="thead-light">
-                <tr>
-                    <th>Place</th>
-                    <th>Name</th>
-                    <th>Highest Phase (points)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let d of sortedData; let i=index">
-                    <th>
-                        <!-- -->
-                        <fa-layers [fixedWidth]="true" class="place-gen">
-                            <fa-icon class="medal-ribbon" stackItemSize="2x"
-                                [styles]="{'color': getMedalRibbonColor(i)}" [icon]="faMedal"></fa-icon>
-                            <fa-icon class="medal" stackItemSize="2x" [styles]="{'color': getMedalColor(i)}"
-                                [icon]="faCircle" transform="shrink-4.5 down-2.5"></fa-icon>
-                            <fa-layers-text content="{{i+1}}" [styles]="{'color': getTextColor(i)}" class="medal-text"
-                                transform="shrink-1 right-9 down-5"></fa-layers-text>
-                        </fa-layers>
-                        <!-- <span class="text-monospace">{{i+1}}</span> -->
-                    </th>
-                    <td>
-                        {{d['player']}}
-                    </td>
-                    <td><span *ngIf="d['phase']==0">
-                            N/A
-                        </span>
-                        <span *ngIf="d['phase']>0">
-                            <span class="phase-card phase-card-selected phase-num">
-                                {{gameService.convertToNumeral(d['phase'])}}
-                            </span>
-                        </span>
-                        ({{d['score']}})
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+  <div *ngSwitchCase="1">
+    <table class="table with-padding">
+      <thead class="thead-light">
+        <tr>
+          <th>Place</th>
+          <th>Name</th>
+          <th>Highest Phase (points)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let d of sortedData; let i = index">
+          <th>
+            <!-- -->
+            <fa-layers [fixedWidth]="true" class="place-gen">
+              <fa-icon
+                class="medal-ribbon"
+                stackItemSize="2x"
+                [styles]="{ color: getMedalRibbonColor(i) }"
+                [icon]="faMedal"
+              ></fa-icon>
+              <fa-icon
+                class="medal"
+                stackItemSize="2x"
+                [styles]="{ color: getMedalColor(i) }"
+                [icon]="faCircle"
+                transform="shrink-4.5 down-2.5"
+              ></fa-icon>
+              <fa-layers-text
+                content="{{ i + 1 }}"
+                [styles]="{ color: getTextColor(i) }"
+                class="medal-text"
+                transform="shrink-1 right-9 down-5"
+              ></fa-layers-text>
+            </fa-layers>
+            <!-- <span class="text-monospace">{{i+1}}</span> -->
+          </th>
+          <td>
+            {{ d["player"] }}
+          </td>
+          <td [ngSwitch]="d['phase']">
+            <span *ngSwitchCase="0"> N/A </span>
+            <span *ngSwitchDefault>
+              <span class="phase-card phase-card-selected phase-num">
+                {{ gameService.convertToNumeral(d["phase"]) }}
+              </span>
+            </span>
+            ({{ d["score"] }})
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-
-    <div *ngSwitchDefault>
-        <table class="table with-padding">
-            <thead class="thead-light">
-                <tr>
-                    <th>Name</th>
-                    <th>Highest Phase Completed</th>
-                    <th>Total Points</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let d of data">
-                    <th>{{d['player']}}</th>
-                    <td>
-                        <span *ngIf="d['phase']==0">
-                            N/A
-                        </span>
-                        <span *ngIf="d['phase']>0">
-                            <span class="phase-card phase-card-selected phase-num">
-                                {{gameService.convertToNumeral(d['phase'])}}
-                            </span>
-                        </span>
-                    </td>
-                    <td>{{d['score']}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+  <div *ngSwitchDefault>
+    <table class="table with-padding">
+      <thead class="thead-light">
+        <tr>
+          <th>Name</th>
+          <th>Highest Phase Completed</th>
+          <th>Total Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let d of data">
+          <th>{{ d["player"] }}</th>
+          <td [ngSwitch]="d['phase']">
+            <span *ngSwitchCase="0"> N/A </span>
+            <span *ngSwitchDefault>
+              <span class="phase-card phase-card-selected phase-num">
+                {{ gameService.convertToNumeral(d["phase"]) }}
+              </span>
+            </span>
+          </td>
+          <td>{{ d["score"] }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </ng-container>
