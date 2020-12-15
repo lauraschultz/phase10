@@ -8,6 +8,11 @@ html {
   height: 100%;
 }
 
+table.sticky-header thead th {
+  position: sticky;
+  top: 0;
+}
+
 .ml-r {
   margin-left: var(--responsive-padding);
 }
@@ -28,15 +33,6 @@ html {
   width: max-content;
 }
 
-table.with-padding th:first-child {
-  padding-left: var(--responsive-padding);
-}
-
-table.with-padding th:last-child,
-table.with-padding td:last-child {
-  padding-right: var(--responsive-padding);
-}
-
 /* table.with-padding thead tr th {
     padding-top:25px !important;
 } */
@@ -52,7 +48,6 @@ table.with-padding td:last-child {
   display: inline-block;
   text-align: center;
   max-width: 42px;
-  z-index: 10;
 }
 
 .nav-link {

@@ -1,46 +1,46 @@
-<script src="https://kit.fontawesome.com/00cfb3672c.js" crossorigin="anonymous"></script>
-<div id="container">
-
-  <div class="card">
-    <nav class="navbar navbar-light bg-light justify-content-center fixed-bottom">
-      <div class="nav-items-cont justify-content-between">
-        <a class="nav-item nav-link text-center p-1" [routerLink]="['editPlayers']" routerLinkActive="active">
-          <h2 class="m-0">
-            <fa-icon [icon]="faUsers"></fa-icon>
-          </h2>
-          <small>Enter Players</small>
-        </a>
-        <a class="nav-item nav-link text-center p-1" [ngClass]="{'disabled':!gameService.players.valid}"
-          [routerLink]="['score']" routerLinkActive="active">
-          <h2 class="m-0">
-            <fa-icon [icon]="faPencilAlt"></fa-icon>
-          </h2>
-          <small>Score Rounds</small>
-        </a>
-        <a class="nav-item nav-link text-center p-1" [ngClass]="{'disabled':!gameService.players.valid}"
-          [routerLink]="['viewTotals']" routerLinkActive="active">
-          <h2 class="m-0">
-            <fa-icon [icon]="faMedal"></fa-icon>
-          </h2>
-          <small>View Totals</small>
-        </a>
-
-      </div>
-    </nav>
-
-    <!-- TODO: better soln for margin/navbar issue -->
-    <div class="content">
-      <router-outlet></router-outlet>
-
-
-      <!-- <ng-container [ngSwitch]="gameService.appView">
-  <enter-players *ngSwitchCase="0"></enter-players>
-  <enter-scores *ngSwitchCase="1"></enter-scores>
-  <view-totals *ngSwitchCase="2"></view-totals>
-</ng-container> -->
-
-    </div>
-
-
+<script
+  src="https://kit.fontawesome.com/00cfb3672c.js"
+  crossorigin="anonymous"
+></script>
+<app-modal [visible]="true"></app-modal>
+<main class="d-flex flex-column min-vh-100">
+  <div class="container flex-fill" style="max-width: 40rem">
+    <router-outlet></router-outlet>
   </div>
-</div>
+  <nav class="mt-2 bg-light">
+    <div class="nav-items-cont justify-content-between mx-auto p-2">
+      <a
+        class="nav-item nav-link text-center p-1"
+        [routerLink]="['editPlayers']"
+        routerLinkActive="active"
+      >
+        <h2 class="m-0">
+          <fa-icon [icon]="faUsers"></fa-icon>
+        </h2>
+        <small>Enter Players</small>
+      </a>
+      <a
+        class="nav-item nav-link text-center p-1"
+        [ngClass]="{ disabled: !gameService.players.valid }"
+        [routerLink]="['score']"
+        routerLinkActive="active"
+      >
+        <h2 class="m-0">
+          <fa-icon [icon]="faPencilAlt"></fa-icon>
+        </h2>
+        <small>Score Rounds</small>
+      </a>
+      <a
+        class="nav-item nav-link text-center p-1"
+        [ngClass]="{ disabled: !gameService.players.valid }"
+        [routerLink]="['viewTotals']"
+        routerLinkActive="active"
+      >
+        <h2 class="m-0">
+          <fa-icon [icon]="faMedal"></fa-icon>
+        </h2>
+        <small>View Totals</small>
+      </a>
+    </div>
+  </nav>
+</main>

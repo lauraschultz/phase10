@@ -34,6 +34,14 @@ export class GameService {
     } else {
       this.reset();
     }
+    this.subscribe();
+  }
+
+  subscribe() {
+    this.game.valueChanges.subscribe((val) => {
+      console.log("value change");
+      localStorage.setItem("gameValue", JSON.stringify(val));
+    });
   }
 
   reset() {
@@ -44,10 +52,7 @@ export class GameService {
     });
     this.addPlayer();
     this.addPlayer();
-    this.game.valueChanges.subscribe((val) => {
-      console.log("value change");
-      localStorage.setItem("gameValue", JSON.stringify(val));
-    });
+    this.subscribe();
   }
 
   get players() {
@@ -98,20 +103,16 @@ export class GameService {
   createRound(data?: { phase: boolean; points: number }): FormGroup {
     return this.formBuilder.group({
       phase: new FormControl(data?.phase || false),
-      points: new FormControl(data?.points || "", Validators.required),
+      points: new FormControl(data?.points ?? "", Validators.required),
     });
   }
 
   handleAddPlayerBtn() {
-    if (this.gameStarted()) {
-      // TODO: modal message
-    }
     this.addPlayer();
   }
 
   handleRemovePlayerBtn(i: number) {
     if (this.gameStarted()) {
-      // TODO: modal message
       this.rounds.controls.forEach((ar) => {
         (<FormArray>ar).removeAt(i);
       });
