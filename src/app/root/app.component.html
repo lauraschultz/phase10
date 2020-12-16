@@ -2,12 +2,11 @@
   src="https://kit.fontawesome.com/00cfb3672c.js"
   crossorigin="anonymous"
 ></script>
-<app-modal [visible]="true"></app-modal>
-<main class="d-flex flex-column min-vh-100">
+<main class="d-flex flex-column vh-100">
   <div class="container flex-fill" style="max-width: 40rem">
     <router-outlet></router-outlet>
   </div>
-  <nav class="mt-2 bg-light">
+  <nav class="mt-2 bg-light flex-grow-1 flex=shrink-0">
     <div class="nav-items-cont justify-content-between mx-auto p-2">
       <a
         class="nav-item nav-link text-center p-1"
