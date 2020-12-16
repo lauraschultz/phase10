@@ -15,6 +15,8 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./root/app.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { NgbdModalContent } from "./shared/modal/modal.component";
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { NgbdModalContent } from "./shared/modal/modal.component";
     ReactiveFormsModule,
     FontAwesomeModule,
     NgbModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [FormBuilder],
   bootstrap: [AppComponent],
