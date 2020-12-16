@@ -54,11 +54,7 @@ export class EnterScoresComponent implements OnInit {
   }
 
   handleReset() {
-    console.log("handle reset.");
-    // this.modalVisible = true;
     this.open();
-    // this.gameService.reset();
-    // this.router.navigate(['editPlayers'])
   }
 
   ngOnInit(): void {

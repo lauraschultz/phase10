@@ -39,7 +39,6 @@ export class GameService {
 
   subscribe() {
     this.game.valueChanges.subscribe((val) => {
-      console.log("value change");
       localStorage.setItem("gameValue", JSON.stringify(val));
     });
   }
