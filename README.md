@@ -6,8 +6,6 @@ Keep score by entering the pointed earned each round on the 'Score Rounds' tab, 
 
 Check to see who's winning by clicking the 'View Totals' tab and clicking 'Ranked View'. Players are sorted by highest phase achieved, then by least total points.
 
-Please note that the app does *not* save scores; all data will be lost upon reload.
-
 ## Screenshots
 
 ![enter players tab](https://raw.githubusercontent.com/lauraschultz/phase10/master/src/assets/forReadMe/enter.png)
