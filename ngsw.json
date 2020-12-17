@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1608162521908,
+  "timestamp": 1608224799554,
   "index": "/phase10/index.html",
   "assetGroups": [
     {
@@ -115,10 +115,10 @@
     "/phase10/assets/icons/manifest-icon-512.png": "005232c2688dbb8aa436201fb8690157186c054c",
     "/phase10/assets/scorekeeperlogo.png": "cf85b0f57b31c10f8d66ba97a5a5331e8c9ca6ed",
     "/phase10/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/phase10/index.html": "9a5d074aee7f080108e8de3c1ed9f106d2066c19",
+    "/phase10/index.html": "e2c7527f5923c82d45ed89e926ae0c657117680f",
     "/phase10/main-es2015.8294ac75b1c96c2ddbbc.js": "fb60d4b71451ca69283a3bd1a49f1453facf9362",
     "/phase10/main-es5.8294ac75b1c96c2ddbbc.js": "f6afdf2f85b9f14080e399efe6148b5edee26bbd",
-    "/phase10/manifest.webmanifest": "2f135cdf1135454abc3e369360af14cc45c5a094",
+    "/phase10/manifest.webmanifest": "5daee6783f8727245c085377f9e49d0192e1b3b3",
     "/phase10/polyfills-es2015.e39d57420bbc09ea6a24.js": "90fb474e1a7d87bd57bc8a95fb3fd361b919d815",
     "/phase10/polyfills-es5.50135ddf6e318e8abaaa.js": "ccfff1a6bd0b9531245e25bf3c0c8cf948ced8c2",
     "/phase10/runtime-es2015.0dae8cbc97194c7caed4.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
